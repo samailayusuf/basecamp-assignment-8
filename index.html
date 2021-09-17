@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+  <title>My Multiplications table</title>
+</head>
+<body>
+  <h3 class="text-center mt-3 mb-3"> Multiplications Table</h3>
+
+<form class="container">
+  <div class="form-group mb-3">
+    <label for="num">Number</label>
+    <input type="number" class="form-control" id="num" placeholder="Enter Number">
+  </div>
+  
+   <div class="form-group mb-3">
+    <label for="range">Range</label>
+    <input type="number" class="form-control" id="range" placeholder="Enter Number">
+  </div>
+  
+  <button type="button" onclick="calculate()" class="btn btn-primary">Submit</button>
+</form>
+
+<div id="output" class="container mt-5">
+  
+</div>  
+  
+  
+  <script>
+      function calculate(){
+          let num = parseInt(document.getElementById('num').value);
+          let range = parseInt(document.getElementById('range').value);
+
+        //   if(num > range ) {
+        //     document.getElementById('output').innerHTML ="number cannot be grater than range!"
+        //       return false;
+        //   }
+        
+          let outputString =   '<table class="table table-striped">'
+                                +'<thead>'
+                                + '<tr>'
+                                + '<th scope="col">Multiplication</th>'
+                                + '<th scope="col">Result</th> </tr></thead>'
+                                + '<tbody>'; 
+
+
+          
+
+          for(let i=1; i<=range; i++){
+            outputString += `<tr><td>${num} x ${i}</td><td>${num * i}</td></tr>`;
+           
+          }
+
+          outputString += '</tbody></table>';
+
+          document.getElementById('output').innerHTML = outputString;
+
+
+      }
+  </script>
+
+</body>
+</html>
